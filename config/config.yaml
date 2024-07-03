@@ -1,0 +1,42 @@
+app:
+  http_port: 9999
+  http_addr: "0.0.0.0"
+  max_header_size: 1 # 单位 m
+  read_timeout: 60 # 单位 s
+  read_header_timeout: 60 # 单位 s
+  write_timeout: 60 # 单位 s
+  tls: false # true | false
+  cert_file: "config/www.ikubeops.local_chain.crt"
+  key_file: "config/www.ikubeops.local_key.key"
+  shutdown_timeout: 60
+
+logger:
+  output: "console" # console | file
+  format: "console" # json | console
+  level: "debug" # debug | info | warn | error
+  dev: false # true | false
+  file_path: "logs/" #
+  max_size: 10 # 单位 m
+  max_age: 30
+  max_backups: 10
+
+mysql:
+  host: "172.16.1.61"
+  port: 3306
+  user: "root"
+  password: "12345678"
+  db_name: "web_template"
+  max_open_conns: 200
+  max_idle_conns: 100
+  log-mode: "Info"  # Error, Warn. Info
+  log-zap: true
+  config: "charset=utf8&parseTime=True&loc=Local"
+  enable: false # true | false
+
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  db: 0
+  password: "123456"
+  pool_size: 100
+  enable: false # true | false
