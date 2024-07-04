@@ -7,6 +7,7 @@ import (
 	"gorm.io/gorm/logger"
 	"log"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -20,8 +21,8 @@ type IkubeGorm struct {
 	logToFile    bool // 是否将日志写入文件
 }
 
-// NewIkubeGorm 初始化一个新的 IkubeGorm 实例
-func NewIkubeGorm(dsn string, maxIdleConns, maxOpenConns int, logToFile bool, level string) (*IkubeGorm, error) {
+// InitIkubeGorm 初始化一个新的 IkubeGorm 实例
+func InitIkubeGorm(dsn string, maxIdleConns, maxOpenConns int, logToFile bool, level string) (*IkubeGorm, error) {
 	ikube := &IkubeGorm{
 		dsn:          dsn,
 		maxIdleConns: maxIdleConns,
@@ -70,7 +71,7 @@ func (ikube *IkubeGorm) load() error {
 func (ikube *IkubeGorm) gormConfig() *gorm.Config {
 	var gormLogger logger.Interface
 	var loggerLevel logger.LogLevel
-	switch ikube.level {
+	switch strings.ToLower(ikube.level) {
 	case "debug":
 		loggerLevel = logger.Info
 	case "info":

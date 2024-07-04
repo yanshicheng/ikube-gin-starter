@@ -1,162 +1,269 @@
 package logger
 
 import (
-	"os"
-
-	"github.com/natefinch/lumberjack"
+	"fmt"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+	"sync/atomic"
+	"unsafe"
 )
 
-// IkubeLogger 日志配置结构体
-type IkubeLogger struct {
-	Output     string `json:"output" yaml:"output" mapstructure:"output" env:"LOG_OUTPUT"`                      // 日志输出位置，支持 "file" 和 "console"
-	Format     string `json:"format" yaml:"format" mapstructure:"format"  env:"LOG_FORMAT"`                     // 日志格式，支持 "json" 和 "console"
-	Level      string `json:"level" yaml:"level" mapstructure:"level"  env:"LOG_LEVEL"`                         // 日志级别，支持 "debug", "info", "warn", "error"
-	MaxFile    bool   `json:"max_file" yaml:"max_file" mapstructure:"max_file"  env:"LOG_MAX_FILE"`             // 日志是否拆分文件
-	Dev        bool   `json:"dev" yaml:"dev" mapstructure:"dev"  env:"LOG_DEV"`                                 // 是否开启开发模式
-	FilePath   string `json:"file_path" yaml:"file_path" mapstructure:"file_path"  env:"LOG_FILE_PATH"`         // 日志文件路径
-	MaxSize    int    `json:"max_size" yaml:"max_size" mapstructure:"max_size"  env:"LOG_MAX_SIZE"`             // 日志文件大小限制，单位 MB
-	MaxAge     int    `json:"max_age" yaml:"max_age" mapstructure:"max_age"  env:"LOG_MAX_AGE"`                 // 日志文件保留天数
-	MaxBackups int    `json:"max_backups" yaml:"max_backups" mapstructure:"max_backups"  env:"LOG_MAX_BACKUPS"` // 日志文件保留数量
+var (
+	_log unsafe.Pointer // 指向 coreLogger 的指针。通过 atomic.LoadPointer 访问。
+)
+
+type LogOption = zap.Option
+
+// coreLogger 是日志核心结构体，包含了多个日志记录器和配置信息。
+type coreLogger struct {
+	logger       *Logger         // 基础日志记录器
+	rootLogger   *zap.Logger     // 没有任何配置选项的根日志记录器
+	webLogger    *Logger         // 用于 Web 日志记录的日志记录器
+	globalLogger *zap.Logger     // 全局日志记录器
+	atom         zap.AtomicLevel // 动态日志级别设置
 }
 
-func NewIkubeLogger(output, format, level string, maxFile bool, dev bool, filePath string, maxSize, maxAge, maxBackups int) *IkubeLogger {
-	return &IkubeLogger{
-		Output:     output,
-		Format:     format,
-		Level:      level,
-		MaxFile:    maxFile,
-		Dev:        dev,
-		FilePath:   filePath,
-		MaxSize:    maxSize,
-		MaxAge:     maxAge,
-		MaxBackups: maxBackups,
-	}
+// Logger 是包装了 zap.Logger 和 zap.SugaredLogger 的日志结构体。
+type Logger struct {
+	logger *zap.Logger
+	sugar  *zap.SugaredLogger
 }
 
-// LoadLogger 初始化日志记录器
-// LoadLogger 方法根据配置信息初始化和返回一个 Zap 日志记录器实例
-func (l *IkubeLogger) LoadLogger() (*zap.Logger, error) {
-	// 设置日志级别
-	atomicLevel := zap.NewAtomicLevel()
-	switch l.Level {
-	case "debug":
-		atomicLevel.SetLevel(zapcore.DebugLevel)
-	case "info":
-		atomicLevel.SetLevel(zapcore.InfoLevel)
-	case "warn":
-		atomicLevel.SetLevel(zapcore.WarnLevel)
-	case "error":
-		atomicLevel.SetLevel(zapcore.ErrorLevel)
-	default:
-		atomicLevel.SetLevel(zapcore.InfoLevel)
+// storeLogger 存储日志记录器实例到 _log 中。
+func storeLogger(l *coreLogger) {
+	if old := loadLogger(); old != nil {
+		old.rootLogger.Sync() // 同步旧的根日志记录器，确保日志被写入文件。
 	}
-
-	// 配置日志输出位置和格式
-	var cores []zapcore.Core
-
-	if l.MaxFile {
-		// 创建文件日志的各个级别核心
-		debugCore := zapcore.NewCore(l.getEncoder(), l.GetWriteSyncer(l.FilePath+"debug.log"), zap.NewAtomicLevelAt(zapcore.DebugLevel))
-		infoCore := zapcore.NewCore(l.getEncoder(), l.GetWriteSyncer(l.FilePath+"info.log"), zap.NewAtomicLevelAt(zapcore.InfoLevel))
-		warnCore := zapcore.NewCore(l.getEncoder(), l.GetWriteSyncer(l.FilePath+"warn.log"), zap.NewAtomicLevelAt(zapcore.WarnLevel))
-		errorCore := zapcore.NewCore(l.getEncoder(), l.GetWriteSyncer(l.FilePath+"error.log"), zap.NewAtomicLevelAt(zapcore.ErrorLevel))
-
-		// 控制台日志核心
-		consoleCore := zapcore.NewCore(l.getEncoder(), zapcore.Lock(os.Stdout), atomicLevel)
-		cores = append(cores, debugCore, infoCore, warnCore, errorCore, consoleCore)
-	} else {
-		// 创建文件日志的统一核心
-		unifiedCore := zapcore.NewCore(l.getEncoder(), l.GetWriteSyncer(l.FilePath+"ikubeops.log"), atomicLevel)
-
-		// 控制台日志核心（如果需要）
-		if l.Output == "console" && l.Dev {
-			consoleCore := zapcore.NewCore(l.getEncoder(), zapcore.Lock(os.Stdout), atomicLevel)
-			cores = append(cores, unifiedCore, consoleCore)
-		} else if l.Output == "console" {
-			consoleCore := zapcore.NewCore(l.getEncoder(), zapcore.Lock(os.Stdout), atomicLevel)
-			cores = append(cores, consoleCore)
-		} else {
-			cores = append(cores, unifiedCore)
-		}
-	}
-
-	// 创建Logger实例
-	logger := zap.New(zapcore.NewTee(cores...), zap.AddCaller())
-
-	// 设置全局Logger实例，以便在其他包中可以直接使用 zap.L() 调用
-	zap.ReplaceGlobals(logger)
-
-	return logger, nil
+	atomic.StorePointer(&_log, unsafe.Pointer(l))
 }
 
-// LoadGormLogger 初始化并返回一个用于 GORM 的 zap 日志记录器
-func (l *IkubeLogger) LoadGormLogger() (*zap.Logger, error) {
-	// 设置日志级别
-	atomicLevel := zap.NewAtomicLevel()
-	switch l.Level {
-	case "debug":
-		atomicLevel.SetLevel(zapcore.DebugLevel)
-	case "info":
-		atomicLevel.SetLevel(zapcore.InfoLevel)
-	case "warn":
-		atomicLevel.SetLevel(zapcore.WarnLevel)
-	case "error":
-		atomicLevel.SetLevel(zapcore.ErrorLevel)
-	default:
-		atomicLevel.SetLevel(zapcore.InfoLevel)
-	}
-
-	// 创建文件日志核心
-	sqlCore := zapcore.NewCore(l.getEncoder(), l.GetWriteSyncer(l.FilePath+"sql.log"), atomicLevel)
-
-	// 创建Logger实例
-	logger := zap.New(sqlCore, zap.AddCaller())
-
-	return logger, nil
+// newLogger 创建一个新的 Logger 实例。
+func newLogger(rootLogger *zap.Logger, selector string, options ...LogOption) *Logger {
+	log := rootLogger.
+		WithOptions().
+		WithOptions(options...).
+		Named(selector)
+	return &Logger{log, log.Sugar()}
 }
 
-// getEncoder 获取日志编码器
-// getEncoder 方法根据 Dev 字段设置选择性返回开发环境或生产环境的日志编码器
-func (l *IkubeLogger) getEncoder() zapcore.Encoder {
-	var encoderConfig zapcore.EncoderConfig
-	if l.Dev {
-		encoderConfig = zap.NewDevelopmentEncoderConfig()
-	} else {
-		encoderConfig = zap.NewProductionEncoderConfig()
-	}
-	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder         // 时间格式为ISO8601
-	encoderConfig.TimeKey = "time"                                // 日志时间字段名
-	encoderConfig.MessageKey = "message"                          // 日志消息字段名
-	encoderConfig.CallerKey = "caller"                            // 日志调用者字段名
-	encoderConfig.LevelKey = "level"                              // 日志级别字段名
-	encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder       // 日志级别大写
-	encoderConfig.EncodeDuration = zapcore.SecondsDurationEncoder // 记录持续时间
-	encoderConfig.EncodeCaller = zapcore.ShortCallerEncoder       // 短路径调用者编码器
+// newGinLogger 创建一个新的用于 Gin 框架的 Logger 实例。
+func newGinLogger(rootLogger *zap.Logger, selector string, options ...LogOption) *Logger {
+	log := rootLogger.
+		WithOptions().
+		WithOptions(options...).
+		Named(selector)
+	return &Logger{log, log.Sugar()}
+}
 
-	// 根据 Format 字段来选择编码器
-	switch l.Format {
-	case "json":
-		return zapcore.NewJSONEncoder(encoderConfig)
-	case "console":
-		return zapcore.NewConsoleEncoder(encoderConfig)
-	default:
-		// 默认使用 JSON 编码器
-		return zapcore.NewJSONEncoder(encoderConfig)
+// NewLogger 初始化日志记录器，设置全局日志记录器和 webLogger。
+func NewLogger(e *IkubeLogger) error {
+	atom := zap.NewAtomicLevel()           // 创建一个新的原子级别控制器
+	logger, webLogger := e.EncoderConfig() // 获取编码器配置信息
+	storeLogger(&coreLogger{
+		rootLogger:   logger,
+		logger:       newLogger(logger, ""),
+		globalLogger: logger.WithOptions(),
+		webLogger:    newGinLogger(webLogger, ""),
+		atom:         atom,
+	})
+	return nil
+}
+
+// Named 返回一个添加了新路径段的日志记录器。
+func (l *Logger) Named(name string) *Logger {
+	logger := l.logger.Named(name)
+	return &Logger{logger, logger.Sugar()}
+}
+
+// SetLevel 动态设置日志记录器的日志级别。
+func (l *Logger) SetLevel(level string) {
+	var zapLevel zap.AtomicLevel
+	zapLevel.UnmarshalText([]byte(level))
+	l.logger.Core().Enabled(zapLevel.Level())
+}
+
+// Option 是用于配置 zap.Config 的函数类型。
+type Option func(*zap.Config)
+
+// WithCaller 在日志输出中启用调用者字段。
+func WithCaller(caller bool) Option {
+	return func(config *zap.Config) {
+		config.Development = !caller
+		config.DisableCaller = !caller
 	}
 }
 
-// GetWriteSyncer 方法根据文件路径参数创建并返回一个日志写入同步器
-func (l *IkubeLogger) GetWriteSyncer(file string) zapcore.WriteSyncer {
-	// 创建 lumberjack.Logger 实例，用于日志文件滚动
-	lumberJackLogger := &lumberjack.Logger{
-		Filename:   file,         // 日志文件名
-		MaxSize:    l.MaxSize,    // 单个日志文件大小上限（MB）
-		MaxBackups: l.MaxBackups, // 日志文件最多保留备份数量
-		MaxAge:     l.MaxAge,     // 日志文件保留天数
-		Compress:   true,         // 是否压缩旧日志文件
+// Print 使用 fmt.Sprint 构造并记录一条消息。
+func (l *Logger) Print(args ...interface{}) {
+	l.sugar.Debug(args...)
+}
+
+// Println 使用 fmt.Sprint 构造并记录一条消息。
+func (l *Logger) Println(args ...interface{}) {
+	l.sugar.Debug(args...)
+}
+
+// Debug 使用 fmt.Sprint 构造并记录一条调试级别的消息。
+func (l *Logger) Debug(args ...interface{}) {
+	l.sugar.Debug(args...)
+}
+
+// Info 使用 fmt.Sprint 构造并记录一条信息级别的消息。
+func (l *Logger) Info(args ...interface{}) {
+	l.sugar.Info(args...)
+}
+
+// Warn 使用 fmt.Sprint 构造并记录一条警告级别的消息。
+func (l *Logger) Warn(args ...interface{}) {
+	l.sugar.Warn(args...)
+}
+
+// Error 使用 fmt.Sprint 构造并记录一条错误级别的消息。
+func (l *Logger) Error(args ...interface{}) {
+	l.sugar.Error(args...)
+}
+
+// Fatal 使用 fmt.Sprint 构造并记录一条致命错误级别的消息，然后调用 os.Exit(1)。
+func (l *Logger) Fatal(args ...interface{}) {
+	l.sugar.Fatal(args...)
+}
+
+// Panic 使用 fmt.Sprint 构造并记录一条消息，然后 panic。
+func (l *Logger) Panic(args ...interface{}) {
+	l.sugar.Panic(args...)
+}
+
+// DPanic 使用 fmt.Sprint 构造并记录一条消息。在开发模式下，日志记录器会 panic。
+func (l *Logger) DPanic(args ...interface{}) {
+	l.sugar.DPanic(args...)
+}
+
+// IsDebug 检查日志记录器是否启用了调试级别。
+func (l *Logger) IsDebug() bool {
+	return l.logger.Check(zapcore.DebugLevel, "") != nil
+}
+
+// Printf 使用 fmt.Sprintf 记录一个格式化的消息。
+func (l *Logger) Printf(format string, args ...interface{}) {
+	l.sugar.Debugf(format, args...)
+}
+
+// Debugf 使用 fmt.Sprintf 记录一个格式化的调试级别的消息。
+func (l *Logger) Debugf(format string, args ...interface{}) {
+	l.sugar.Debugf(format, args...)
+}
+
+// Infof 使用 fmt.Sprintf 记录一个格式化的信息级别的消息。
+func (l *Logger) Infof(format string, args ...interface{}) {
+	l.sugar.Infof(format, args...)
+}
+
+// Warnf 使用 fmt.Sprintf 记录一个格式化的警告级别的消息。
+func (l *Logger) Warnf(format string, args ...interface{}) {
+	l.sugar.Warnf(format, args...)
+}
+
+// Errorf 使用 fmt.Sprintf 记录一个格式化的错误级别的消息。
+func (l *Logger) Errorf(format string, args ...interface{}) {
+	l.sugar.Errorf(format, args...)
+}
+
+// Fatalf 使用 fmt.Sprintf 记录一个格式化的致命错误级别的消息，然后调用 os.Exit(1)。
+func (l *Logger) Fatalf(format string, args ...interface{}) {
+	l.sugar.Fatalf(format, args...)
+}
+
+// Panicf 使用 fmt.Sprintf 记录一个格式化的消息，然后 panic。
+func (l *Logger) Panicf(format string, args ...interface{}) {
+	l.sugar.Panicf(format, args...)
+}
+
+// DPanicf 使用 fmt.Sprintf 记录一个格式化的消息。在开发模式下，日志记录器会 panic。
+func (l *Logger) DPanicf(format string, args ...interface{}) {
+	l.sugar.DPanicf(format, args...)
+}
+
+// Debugw 记录一个带有额外上下文的调试级别的消息。
+func (l *Logger) Debugw(msg string, fields ...Field) {
+	l.sugar.Debugw(msg, transfer(fields)...)
+}
+
+// Infow 记录一个带有额外上下文的信息级别的消息。
+func (l *Logger) Infow(msg string, fields ...Field) {
+	l.sugar.Infow(msg, transfer(fields)...)
+}
+
+// Warnw 记录一个带有额外上下文的警告级别的消息。
+func (l *Logger) Warnw(msg string, fields ...Field) {
+	l.sugar.Warnw(msg, transfer(fields)...)
+}
+
+// Errorw 记录一个带有额外上下文的错误级别的消息。
+func (l *Logger) Errorw(msg string, fields ...Field) {
+	l.sugar.Errorw(msg, transfer(fields)...)
+}
+
+// Fatalw 记录一个带有额外上下文的致命错误级别的消息，然后调用 os.Exit(1)。
+func (l *Logger) Fatalw(msg string, fields ...Field) {
+	l.sugar.Fatalw(msg, transfer(fields)...)
+}
+
+// Panicw 记录一个带有额外上下文的消息，然后 panic。
+func (l *Logger) Panicw(msg string, fields ...Field) {
+	l.sugar.Panicw(msg, transfer(fields)...)
+}
+
+// DPanicw 记录一个带有额外上下文的消息。在开发模式下，日志记录器会 panic。
+func (l *Logger) DPanicw(msg string, fields ...Field) {
+	l.sugar.DPanicw(msg, transfer(fields)...)
+}
+
+// Field 是键值对，用于传递额外的上下文信息。
+type Field struct {
+	Key   string      // 键
+	Value interface{} // 值
+}
+
+// transfer 将 Field 转换为 zap.Any 类型的切片，用于日志记录。
+func transfer(m []Field) (ma []interface{}) {
+	for i := range m {
+		ma = append(ma, zap.Any(m[i].Key, m[i].Value))
 	}
-	// 返回写入同步器，将 lumberjack.Logger 转换为 zapcore.WriteSyncer
-	return zapcore.AddSync(lumberJackLogger)
+
+	return
+}
+
+// globalLogger 返回全局日志记录器。
+func globalLogger() *zap.Logger {
+	return loadLogger().globalLogger
+}
+
+// loadLogger 加载当前的日志记录器实例。
+func loadLogger() *coreLogger {
+	p := atomic.LoadPointer(&_log)
+	return (*coreLogger)(p)
+}
+
+// SetLevel 设置全局日志级别。
+func SetLevel(lv Level) {
+	loadLogger().atom.SetLevel(lv.zapLevel())
+}
+
+// L 返回基础日志记录器。
+func L() *Logger {
+	return loadLogger().logger
+}
+
+// W 返回 Web 日志记录器。
+func W() *Logger {
+	return loadLogger().webLogger
+}
+
+// Recover 停止一个 panic 的 goroutine，并记录一个错误级别的消息。
+func (l *Logger) Recover(msg string) {
+	if r := recover(); r != nil {
+		msg := fmt.Sprintf("%s. Recovering, but please report this.", msg)
+		globalLogger().WithOptions().
+			Error(msg, zap.Any("panic", r), zap.Stack("stack"))
+	}
 }

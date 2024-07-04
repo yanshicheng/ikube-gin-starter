@@ -17,15 +17,16 @@ type IkubeConfig struct {
 	DestStruct *types.Config
 }
 
-func NewIkubeConfig(configFile, EnvPrefix string, destStruct *types.Config) *IkubeConfig {
-	return &IkubeConfig{
+func InitIkubeConfig(configFile, EnvPrefix string, destStruct *types.Config) error {
+	ic := IkubeConfig{
 		ConfigFile: configFile,
 		EnvPrefix:  EnvPrefix,
 		DestStruct: destStruct,
 	}
+	return ic.loadFileConfig()
 }
 
-func (i *IkubeConfig) LoadFileConfig() error {
+func (i *IkubeConfig) loadFileConfig() error {
 	// 检查文件是否存在
 	if err := i.checkFileConfig(); err != nil {
 		return err

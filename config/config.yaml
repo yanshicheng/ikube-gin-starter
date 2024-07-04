@@ -16,9 +16,9 @@ logger:
   level: "debug" # debug | info | warn | error
   dev: false # true | false
   file_path: "logs/" #
-  max_size: 10 # 单位 m
+  max_size: 50 # 单位 m
   max_age: 30
-  max_backups: 10
+  max_backups: 5
 
 mysql:
   host: "172.16.1.61"
@@ -28,9 +28,9 @@ mysql:
   db_name: "web_template"
   max_open_conns: 200
   max_idle_conns: 100
-  log-mode: "Info"  # Error, Warn. Info
-  log-zap: true
-  config: "charset=utf8&parseTime=True&loc=Local"
+  level: "Info"  # Error, Warn. Info
+  opts: "charset=utf8&parseTime=True&loc=Local"
+  log-to-file: true
   enable: false # true | false
 
 redis:
@@ -39,4 +39,4 @@ redis:
   db: 0
   password: "123456"
   pool_size: 100
-  enable: false # true | false
+  enable: true # true | false

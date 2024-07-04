@@ -36,9 +36,8 @@ func TestLoadFileConfig(t *testing.T) {
 	t.Cleanup(func() { os.Remove(configFile) }) // 清理文件
 
 	destConfig := types.NewDefaultConfig()
-	c := config.NewIkubeConfig(configFile, "IKUBEOPS_", destConfig)
+	err = config.InitIkubeConfig(configFile, "IKUBEOPS_", destConfig)
 
-	err = c.LoadFileConfig()
 	assert.NoError(t, err, "Loading file config should not produce an error")
 
 	// 校验配置是否按预期加载

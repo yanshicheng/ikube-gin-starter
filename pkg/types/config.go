@@ -24,9 +24,9 @@ type MysqlConfig struct {
 	DbName       string `mapstructure:"db_name" json:"db_name" yaml:"db_name"  env:"MYSQL_DB_NAME"`
 	MaxOpenConns int    `mapstructure:"max_open_conns" json:"max_open_conns" yaml:"max_open_conns"  env:"MYSQL_MAX_OPEN_CONNS"`
 	MaxIdleConns int    `mapstructure:"max_idle_conns" json:"max_idle_conns" yaml:"max_idle_conns"  env:"MYSQL_MAX_IDLE_CONNS"`
-	Config       string `mapstructure:"config" json:"config" yaml:"config"  env:"MYSQL_CONFIG"`        // 高级配置
-	LogMode      string `mapstructure:"log-mode" json:"logMode" yaml:"log-mode"  env:"MYSQL_LOG_MODE"` // 是否开启Gorm全局日志
-	LogZap       bool   `mapstructure:"log-zap" json:"logZap" yaml:"log-zap"  env:"MYSQL_LOG_ZAP"`     // 是否通过zap写入日志文件
+	Opts         string `mapstructure:"opts" json:"opts" yaml:"opts" env:"MYSQL_OPTS"`
+	Level        string `mapstructure:"level" json:"level" yaml:"level" env:"MYSQL_LEVEL"`
+	LogToFile    bool   `mapstructure:"log-to-file" json:"logToFile" yaml:"log-to-file"  env:"MYSQL_LOG_TO_FILE"`
 	Enable       bool   `mapstructure:"enable" json:"enable" yaml:"enable" env:"MYSQL_ENABLE"`
 }
 
@@ -40,14 +40,14 @@ type RedisConfig struct {
 }
 
 type Config struct {
-	App    AppConfig           `mapstructure:"app" json:"app" yaml:"app" env:"IKUBEOPS"`
-	Logger *logger.IkubeLogger `mapstructure:"logger" json:"logger" yaml:"logger" env:"IKUBEOPS"`
-	Mysql  MysqlConfig         `mapstructure:"mysql" json:"mysql" yaml:"mysql" env:"IKUBEOPS"`
-	Redis  RedisConfig         `mapstructure:"redis" json:"redis" yaml:"redis" env:"IKUBEOPS"`
+	App    AppConfig          `mapstructure:"app" json:"app" yaml:"app" env:"IKUBEOPS"`
+	Logger logger.IkubeLogger `mapstructure:"logger" json:"logger" yaml:"logger" env:"IKUBEOPS"`
+	Mysql  MysqlConfig        `mapstructure:"mysql" json:"mysql" yaml:"mysql" env:"IKUBEOPS"`
+	Redis  RedisConfig        `mapstructure:"redis" json:"redis" yaml:"redis" env:"IKUBEOPS"`
 }
 
-func NewAppConfig() *AppConfig {
-	return &AppConfig{
+func NewAppConfig() AppConfig {
+	return AppConfig{
 		HttpPort:          9900,
 		HttpAddr:          "0.0.0.0",
 		Language:          "zh",
@@ -62,8 +62,8 @@ func NewAppConfig() *AppConfig {
 	}
 }
 
-func NewLoggerConfig() *logger.IkubeLogger {
-	return &logger.IkubeLogger{
+func NewLoggerConfig() logger.IkubeLogger {
+	return logger.IkubeLogger{
 		Output:     "console",
 		Format:     "console",
 		Level:      "debug",
@@ -75,8 +75,8 @@ func NewLoggerConfig() *logger.IkubeLogger {
 		MaxBackups: 100,
 	}
 }
-func NewMysqlConfig() *MysqlConfig {
-	return &MysqlConfig{
+func NewMysqlConfig() MysqlConfig {
+	return MysqlConfig{
 		Host:         "127.0.0.1",
 		Port:         3306,
 		User:         "root",
@@ -84,15 +84,15 @@ func NewMysqlConfig() *MysqlConfig {
 		DbName:       "test",
 		MaxOpenConns: 100,
 		MaxIdleConns: 20,
-		Config:       "charset=utf8mb4&parseTime=True&loc=Local",
-		LogMode:      "Info",
-		LogZap:       false,
+		Level:        "info",
+		Opts:         "",
+		LogToFile:    false,
 		Enable:       false,
 	}
 }
 
-func NewRedisConfig() *RedisConfig {
-	return &RedisConfig{
+func NewRedisConfig() RedisConfig {
+	return RedisConfig{
 		Host:     "127.0.0.1",
 		Port:     6379,
 		Db:       0,
@@ -104,9 +104,9 @@ func NewRedisConfig() *RedisConfig {
 
 func NewDefaultConfig() *Config {
 	return &Config{
-		App:    *NewAppConfig(),
+		App:    NewAppConfig(),
 		Logger: NewLoggerConfig(),
-		Mysql:  *NewMysqlConfig(),
-		Redis:  *NewRedisConfig(),
+		Mysql:  NewMysqlConfig(),
+		Redis:  NewRedisConfig(),
 	}
 }

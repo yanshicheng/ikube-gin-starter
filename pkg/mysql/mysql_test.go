@@ -1,6 +1,7 @@
 package mysql_test
 
 import (
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -54,5 +55,7 @@ func TestIkubeGorm(t *testing.T) {
 
 	// 关闭数据库连接
 	err = ikube.Close()
-	assert.NoError(t, err, "关闭数据库连接应该成功")
+	assert.NoError(t, err, "关闭数据库失败")
+	err = os.Remove("gorm.log")
+	assert.NoError(t, err, "清理文件失败")
 }
