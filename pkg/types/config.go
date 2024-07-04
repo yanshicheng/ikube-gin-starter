@@ -1,5 +1,7 @@
 package types
 
+import "github.com/yanshicheng/ikube-gin-starter/pkg/logger"
+
 type AppConfig struct {
 	HttpAddr          string `mapstructure:"http_addr" json:"http_addr" yaml:"http_addr" env:"APP_HTTP_ADDR"`
 	HttpPort          int    `mapstructure:"http_port" json:"http_port" http_port:"http_port" env:"APP_HTTP_PORT"`
@@ -12,17 +14,6 @@ type AppConfig struct {
 	CertFile          string `mapstructure:"cert_file" json:"cert_file" yaml:"cert_file" env:"APP_CERT_FILE"`
 	KeyFile           string `mapstructure:"key_file" json:"key_file" yaml:"key_file" env:"APP_KEY_FILE"`
 	ShutdownTimeout   int    `mapstructure:"shutdown_timeout" json:"shutdown_timeout" yaml:"shutdown_timeout" env:"APP_SHUTDOWN_TIMEOUT"`
-}
-
-type LoggerConfig struct {
-	Output     string `json:"output" yaml:"output" mapstructure:"output" env:"LOG_OUTPUT"`
-	Format     string `json:"format" yaml:"format" mapstructure:"format"  env:"LOG_FORMAT"`
-	Level      string `json:"level" yaml:"level" mapstructure:"level"  env:"LOG_LEVEL"`
-	Dev        bool   `json:"dev" yaml:"dev" mapstructure:"dev"  env:"LOG_DEV"`
-	FilePath   string `json:"file_path" yaml:"file_path" mapstructure:"file_path"  env:"LOG_FILE_PATH"`
-	MaxSize    int    `json:"max_size" yaml:"max_size" mapstructure:"max_size"  env:"LOG_MAX_SIZE"`
-	MaxAge     int    `json:"max_age" yaml:"max_age" mapstructure:"max_age"  env:"LOG_MAX_AGE"`
-	MaxBackups int    `json:"max_backups" yaml:"max_backups" mapstructure:"max_backups"  env:"LOG_MAX_BACKUPS"`
 }
 
 type MysqlConfig struct {
@@ -49,10 +40,10 @@ type RedisConfig struct {
 }
 
 type Config struct {
-	App    AppConfig    `mapstructure:"app" json:"app" yaml:"app" env:"IKUBEOPS"`
-	Logger LoggerConfig `mapstructure:"logger" json:"logger" yaml:"logger" env:"IKUBEOPS"`
-	Mysql  MysqlConfig  `mapstructure:"mysql" json:"mysql" yaml:"mysql" env:"IKUBEOPS"`
-	Redis  RedisConfig  `mapstructure:"redis" json:"redis" yaml:"redis" env:"IKUBEOPS"`
+	App    AppConfig           `mapstructure:"app" json:"app" yaml:"app" env:"IKUBEOPS"`
+	Logger *logger.IkubeLogger `mapstructure:"logger" json:"logger" yaml:"logger" env:"IKUBEOPS"`
+	Mysql  MysqlConfig         `mapstructure:"mysql" json:"mysql" yaml:"mysql" env:"IKUBEOPS"`
+	Redis  RedisConfig         `mapstructure:"redis" json:"redis" yaml:"redis" env:"IKUBEOPS"`
 }
 
 func NewAppConfig() *AppConfig {
@@ -71,11 +62,12 @@ func NewAppConfig() *AppConfig {
 	}
 }
 
-func NewLoggerConfig() *LoggerConfig {
-	return &LoggerConfig{
-		Output:     "stdout",
-		Format:     "json",
+func NewLoggerConfig() *logger.IkubeLogger {
+	return &logger.IkubeLogger{
+		Output:     "console",
+		Format:     "console",
 		Level:      "debug",
+		MaxFile:    false,
 		Dev:        true,
 		FilePath:   "./logs",
 		MaxSize:    10,
@@ -113,7 +105,7 @@ func NewRedisConfig() *RedisConfig {
 func NewDefaultConfig() *Config {
 	return &Config{
 		App:    *NewAppConfig(),
-		Logger: *NewLoggerConfig(),
+		Logger: NewLoggerConfig(),
 		Mysql:  *NewMysqlConfig(),
 		Redis:  *NewRedisConfig(),
 	}
