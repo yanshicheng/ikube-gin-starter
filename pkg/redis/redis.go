@@ -17,7 +17,7 @@ type IkubeRedis struct {
 }
 
 // NewIkubeRedis 初始化一个新的 IkubeRedis 实例
-func NewIkubeRedis(addr, password string, db, poolSize int) (*IkubeRedis, error) {
+func InitIkubeRedis(addr, password string, db, poolSize int) (*IkubeRedis, error) {
 	ikube := &IkubeRedis{
 		addr:     addr,
 		password: password,

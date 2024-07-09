@@ -5,6 +5,7 @@ import "github.com/yanshicheng/ikube-gin-starter/pkg/logger"
 type AppConfig struct {
 	HttpAddr          string `mapstructure:"http_addr" json:"http_addr" yaml:"http_addr" env:"APP_HTTP_ADDR"`
 	HttpPort          int    `mapstructure:"http_port" json:"http_port" http_port:"http_port" env:"APP_HTTP_PORT"`
+	HealthPort        int    `mapstructure:"health_port" json:"health_port" yaml:"health_port" env:"APP_HEALTH_PORT"`
 	Language          string `mapstructure:"language" json:"language" yaml:"language" env:"APP_LANGUAGE"`
 	MaxHeaderSize     int    `mapstructure:"max_header_size" json:"max_header_size" yaml:"max_header_size" env:"APP_MAX_HEADER_SIZE"`
 	ReadTimeout       int    `mapstructure:"read_timeout" json:"read_timeout" yaml:"read_timeout" env:"APP_READ_TIMEOUT"`
@@ -49,6 +50,7 @@ type Config struct {
 func NewAppConfig() AppConfig {
 	return AppConfig{
 		HttpPort:          9900,
+		HealthPort:        9999,
 		HttpAddr:          "0.0.0.0",
 		Language:          "zh",
 		MaxHeaderSize:     1,

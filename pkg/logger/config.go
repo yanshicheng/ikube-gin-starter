@@ -1,11 +1,11 @@
 package logger
 
 import (
-	"os"
-
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+	"os"
+	"time"
 )
 
 // IkubeLogger 日志配置结构体
@@ -34,12 +34,16 @@ func InitIkubeLogger(output, format, level string, maxFile bool, dev bool, fileP
 		MaxBackups: maxBackups,
 	}
 	// 初始化 logger
-	zlog, err := il.loadLogger()
+
+	logger := il.encoderConfig()
+	return logger, nil
+}
+func (i *IkubeLogger) encoderConfig() *zap.Logger {
+	logger, err := i.loadLogger()
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
-	NewLogger
-	return zlog, nil
+	return logger
 }
 
 // LoadLogger 初始化日志记录器
@@ -77,7 +81,7 @@ func (l *IkubeLogger) loadLogger() (*zap.Logger, error) {
 		// 创建文件日志的统一核心
 		unifiedCore := zapcore.NewCore(l.getEncoder(), l.GetWriteSyncer(l.FilePath+"ikubeops.log"), atomicLevel)
 
-		// 控制台日志核心（如果需要）
+		// 控制台日志核心
 		if l.Output == "console" && l.Dev {
 			consoleCore := zapcore.NewCore(l.getEncoder(), zapcore.Lock(os.Stdout), atomicLevel)
 			cores = append(cores, unifiedCore, consoleCore)
@@ -94,6 +98,15 @@ func (l *IkubeLogger) loadLogger() (*zap.Logger, error) {
 
 	// 设置全局Logger实例，以便在其他包中可以直接使用 zap.L() 调用
 	zap.ReplaceGlobals(logger)
+	// 创建并存储 coreLogger 实例
+	coreLoggerInstance := &coreLogger{
+		logger:       newLogger(logger, ""),
+		rootLogger:   logger,
+		globalLogger: logger.WithOptions(),
+		webLogger:    newGinLogger(logger, ""),
+		atom:         atomicLevel,
+	}
+	storeLogger(coreLoggerInstance)
 
 	return logger, nil
 }
@@ -133,7 +146,8 @@ func (l *IkubeLogger) getEncoder() zapcore.Encoder {
 	} else {
 		encoderConfig = zap.NewProductionEncoderConfig()
 	}
-	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder         // 时间格式为ISO8601
+	//encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder         // 时间格式为ISO8601
+	encoderConfig.EncodeTime = customTimeEncoder                  // 时间格式为ISO8601
 	encoderConfig.TimeKey = "time"                                // 日志时间字段名
 	encoderConfig.MessageKey = "message"                          // 日志消息字段名
 	encoderConfig.CallerKey = "caller"                            // 日志调用者字段名
@@ -152,6 +166,11 @@ func (l *IkubeLogger) getEncoder() zapcore.Encoder {
 		// 默认使用 JSON 编码器
 		return zapcore.NewJSONEncoder(encoderConfig)
 	}
+}
+
+// customTimeEncoder 自定义时间编码器，格式为 YYYY-MM-DD HH:mm:ss
+func customTimeEncoder(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
+	enc.AppendString(t.Format("2006-01-02 15:04:05"))
 }
 
 // GetWriteSyncer 方法根据文件路径参数创建并返回一个日志写入同步器

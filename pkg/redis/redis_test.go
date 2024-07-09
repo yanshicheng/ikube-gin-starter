@@ -14,7 +14,7 @@ func TestIkubeRedis(t *testing.T) {
 	db := 0
 	poolSize := 10
 	// 初始化 IkubeRedis 实例
-	ikube, err := redis.NewIkubeRedis(addr, password, db, poolSize)
+	ikube, err := redis.InitIkubeRedis(addr, password, db, poolSize)
 	if err != nil {
 		t.Fatalf("初始化 IkubeRedis 失败: %v", err)
 	}

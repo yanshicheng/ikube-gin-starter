@@ -32,8 +32,8 @@ func ShortTagVersion() string {
 	return fmt.Sprintf("%s[%s %s]", IkubeopsTag, IkubeopsBuildTime, IkubeopsCommit)
 }
 
-func GetWebUrl(httpAddr string, httpPort int, tls bool) string {
-	addr := fmt.Sprintf("%s:%d", httpAddr, httpPort)
+func GetWebUrl(httpAddr string, tls bool) string {
+	addr := fmt.Sprintf("%s", httpAddr)
 	if tls {
 		return fmt.Sprintf("https://%s", addr)
 	} else {

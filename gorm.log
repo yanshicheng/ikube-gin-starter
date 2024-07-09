@@ -1,0 +1,1516 @@
+
+2024/07/05 21:17:40 /Users/devops/data/template/golang/ikube-gin-starter/pkg/mysql/mysql.go:55
+[error] failed to initialize database, got error dial tcp 172.16.1.61:3306: connect: operation timed out
+
+2024/07/05 21:20:44 /Users/devops/data/template/golang/ikube-gin-starter/pkg/mysql/mysql.go:55
+[error] failed to initialize database, got error dial tcp 172.16.1.61:3306: i/o timeout
+
+2024/07/05 23:07:19 /Users/devops/data/template/golang/ikube-gin-starter/pkg/mysql/mysql.go:55
+[error] failed to initialize database, got error dial tcp 172.16.1.61:3306: i/o timeout
+
+2024/07/07 01:04:00 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26 Error 1146 (42S02): Table 'gin_demo.books' doesn't exist
+[19.360ms] [rows:0] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:11:47 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[2.616ms] [rows:-] SELECT DATABASE()
+
+2024/07/07 01:11:47 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[20.395ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/07 01:11:47 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[7.096ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/07 01:11:47 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[22.685ms] [rows:0] CREATE TABLE `books` (`id` bigint unsigned AUTO_INCREMENT,`created_at` datetime NULL,`updated_at` datetime NULL,`deleted_at` datetime NULL,`title` varchar(20) NOT NULL,`page_number` bigint NOT NULL,`desc` TEXT,`meta` json,PRIMARY KEY (`id`),INDEX `idx_books_deleted_at` (`deleted_at`))
+
+2024/07/07 01:13:17 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[5.021ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:24 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[3.612ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:27 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[2.309ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:28 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[2.435ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:29 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[3.164ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:29 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.507ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:30 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.577ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:31 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.623ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:31 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[3.009ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:32 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.510ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:33 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.772ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:34 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[2.405ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:36 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.256ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:37 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.290ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:13:43 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[3.443ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:14:05 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[4.837ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:14:06 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.731ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:14:07 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.756ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 01:14:09 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:26
+[1.380ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 17:19:16 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:46
+[22.972ms] [rows:0] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:19:20 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:46
+[0.639ms] [rows:0] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:21:09 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:46
+[1.573ms] [rows:0] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:21:11 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:46
+[1.054ms] [rows:0] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:21:13 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:46
+[0.621ms] [rows:0] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:21:55 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:51
+[2.307ms] [rows:0] SELECT * FROM `books` WHERE `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:21:58 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:51
+[1.054ms] [rows:0] SELECT * FROM `books` WHERE `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:22:07 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:51
+[1.348ms] [rows:0] SELECT * FROM `books` WHERE `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:22:36 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:51
+[1.537ms] [rows:0] SELECT * FROM `books` WHERE `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:23:19 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[1.427ms] [rows:0] SELECT * FROM `books` WHERE `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:23:21 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.919ms] [rows:0] SELECT * FROM `books` WHERE `books`.`deleted_at` IS NULL LIMIT ? OFFSET ?
+
+2024/07/07 17:23:59 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[2.873ms] [rows:10] SELECT * FROM `books` WHERE `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 19:35:07 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:28
+[17.096ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 19:35:12 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:28
+[3.424ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 19:35:17 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:28
+[1.366ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 19:35:22 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:28
+[2.590ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 19:35:27 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:28
+[3.152ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 19:35:33 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:28
+[2.767ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 19:35:44 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[4.011ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:10 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[5.147ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:10 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.626ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:13 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.636ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:13 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.673ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:14 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.528ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:14 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.404ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:15 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.614ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:15 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.528ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:16 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.690ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:16 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.389ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:17 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.833ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:17 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[1.504ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:18 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.576ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:18 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.535ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:18 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.927ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:18 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.459ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:19 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.917ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:19 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.550ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:20 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.550ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:20 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.383ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:20 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.946ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:20 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.959ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:21 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.899ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:21 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.638ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:21 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.662ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:21 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.583ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:22 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.558ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:22 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.442ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:22 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.822ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:22 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.792ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:23 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.614ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:23 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.360ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:24 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.619ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:24 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.360ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:24 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[1.050ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:24 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.786ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:25 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[1.650ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:25 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.586ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:26 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.545ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:26 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.713ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:27 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.556ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:27 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.356ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:28 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.579ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:28 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.460ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:29 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.873ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:29 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.735ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:29 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[1.591ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:29 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[1.548ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:30 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.538ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:30 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.360ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:31 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.639ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:31 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.489ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:00:32 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:52
+[0.737ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:00:32 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:58
+[0.601ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:22:45 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[2.185ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:22:45 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.698ms] [rows:1] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:24:37 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[0.634ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:24:37 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.545ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL LIMIT ?
+
+2024/07/07 20:26:55 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[1.624ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:26:55 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.510ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:27:20 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[1.712ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:27:20 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[2.337ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID ASC LIMIT ?
+
+2024/07/07 20:28:33 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[0.761ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:28:33 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.385ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:28:40 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[0.574ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:28:40 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.363ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID ASC LIMIT ?
+
+2024/07/07 20:29:45 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[1.627ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:29:45 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.418ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:30:50 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[1.657ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:30:50 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.969ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:30:52 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[0.985ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:30:52 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.611ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:32:52 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[1.714ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:32:52 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.408ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:32:54 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[1.029ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:32:54 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.821ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:33:49 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:16
+[1.121ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:33:49 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:26
+[0.402ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:33:50 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:16
+[0.928ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:33:50 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:26
+[0.985ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:35:19 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:16
+[1.680ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:35:19 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:26
+[0.518ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:35:51 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:16
+[1.380ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:35:51 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:26
+[0.556ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 20:36:38 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[2.070ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 20:36:38 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[1.637ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 22:21:18 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[16.885ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 22:21:18 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[1.288ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 22:22:17 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:57
+[6.031ms] [rows:1] SELECT * FROM `books` WHERE id = ? AND `books`.`deleted_at` IS NULL ORDER BY `books`.`id` LIMIT ?
+
+2024/07/07 22:22:31 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:57
+[2.486ms] [rows:0] SELECT * FROM `books` WHERE id = ? AND `books`.`deleted_at` IS NULL ORDER BY `books`.`id` LIMIT ?
+
+2024/07/07 22:23:16 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:57
+[3.612ms] [rows:1] SELECT * FROM `books` WHERE id = ? AND `books`.`deleted_at` IS NULL ORDER BY `books`.`id` LIMIT ?
+
+2024/07/07 22:24:44 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:39
+[13.986ms] [rows:1] UPDATE `books` SET `updated_at`=?,`title`=?,`page_number`=? WHERE id = ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 22:25:29 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:48
+[2.973ms] [rows:0] UPDATE `books` SET `deleted_at`=? WHERE id = ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 22:27:53 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:48
+[2.688ms] [rows:0] UPDATE `books` SET `deleted_at`=? WHERE id = ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 22:28:26 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:48
+[4.763ms] [rows:1] UPDATE `books` SET `deleted_at`=? WHERE id = ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 22:28:58 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:65
+[2.747ms] [rows:0] SELECT * FROM `books` WHERE id = ? AND `books`.`deleted_at` IS NULL ORDER BY `books`.`id` LIMIT ?
+
+2024/07/07 22:29:00 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:65
+[0.948ms] [rows:0] SELECT * FROM `books` WHERE id = ? AND `books`.`deleted_at` IS NULL ORDER BY `books`.`id` LIMIT ?
+
+2024/07/07 22:42:42 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:15
+[1.922ms] [rows:1] SELECT count(*) FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL
+
+2024/07/07 22:42:42 /Users/devops/data/template/golang/ikube-gin-starter/common/sql/query.go:25
+[0.458ms] [rows:6] SELECT * FROM `books` WHERE title like ? AND `books`.`deleted_at` IS NULL ORDER BY ID DESC LIMIT ?
+
+2024/07/07 22:42:51 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:29
+[5.909ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/07 22:42:59 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:65
+[0.873ms] [rows:0] SELECT * FROM `books` WHERE id = ? AND `books`.`deleted_at` IS NULL ORDER BY `books`.`id` LIMIT ?
+
+2024/07/07 22:43:26 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:65
+[1.158ms] [rows:0] SELECT * FROM `books` WHERE id = ? AND `books`.`deleted_at` IS NULL ORDER BY `books`.`id` LIMIT ?
+
+2024/07/08 10:04:14 /Users/devops/data/template/golang/ikube-gin-starter/pkg/mysql/mysql.go:55
+[error] failed to initialize database, got error Error 1049 (42000): Unknown database 'gin_demo'
+
+2024/07/08 10:04:21 /Users/devops/data/template/golang/ikube-gin-starter/pkg/mysql/mysql.go:55
+[error] failed to initialize database, got error Error 1049 (42000): Unknown database 'gin_demo'
+
+2024/07/08 10:04:49 /Users/devops/data/template/golang/ikube-gin-starter/pkg/mysql/mysql.go:55
+[error] failed to initialize database, got error Error 1045 (28000): Access denied for user 'root'@'172.16.1.111' (using password: YES)
+
+2024/07/08 10:05:07 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[128.145ms] [rows:-] SELECT DATABASE()
+
+2024/07/08 10:05:08 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[235.342ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/08 10:05:08 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[267.235ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/08 10:05:08 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[149.432ms] [rows:0] CREATE TABLE `books` (`id` bigint unsigned AUTO_INCREMENT,`created_at` datetime NULL,`updated_at` datetime NULL,`deleted_at` datetime NULL,`title` varchar(20) NOT NULL,`page_number` bigint NOT NULL,`desc` TEXT,`meta` json,PRIMARY KEY (`id`),INDEX `idx_books_deleted_at` (`deleted_at`))
+
+2024/07/08 12:18:20 /Users/devops/data/template/golang/ikube-gin-starter/apps/book/sql/book_sql.go:29
+[450.873ms] [rows:1] INSERT INTO `books` (`created_at`,`updated_at`,`deleted_at`,`title`,`page_number`,`desc`,`meta`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 14:19:59 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[109.851ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:19:59 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[225.826ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:00 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[270.493ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:00 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[152.513ms] [rows:0] CREATE TABLE `ikubeops_portal_application` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '应用',`path` varchar(10) NOT NULL COMMENT '路径',`icon` varchar(32) NOT NULL COMMENT '图标',`desc` varchar(56) NOT NULL COMMENT '描述',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_application_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_ikubeops_portal_application_name` (`name`),CONSTRAINT `uni_ikubeops_portal_application_path` UNIQUE (`path`),CONSTRAINT `uni_ikubeops_portal_application_icon` UNIQUE (`icon`))
+
+2024/07/09 14:20:00 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[113.732ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:00 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[225.332ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:00 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[258.420ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:01 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[73.672ms] [rows:0] CREATE TABLE `ikubeops_portal_menu` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`path` varchar(32) NOT NULL COMMENT '路由路径',`name` varchar(32) NOT NULL COMMENT '唯一标识名称',`component` varchar(255) NOT NULL COMMENT '组件路径',`redirect` varchar(255) COMMENT '重定向路径',`title` varchar(26) NOT NULL COMMENT '菜单标题',`icon` varchar(32) COMMENT '菜单图标',`expanded` boolean DEFAULT false COMMENT '是否默认展开',`order_no` tinyint NOT NULL COMMENT '菜单顺序编号',`hidden` boolean DEFAULT false COMMENT '是否隐藏菜单',`hidden_breadcrumb` boolean DEFAULT false COMMENT '是否隐藏面包屑',`single` boolean DEFAULT false COMMENT '是否单级菜单显示',`frame_src` varchar(255) COMMENT '内嵌iframe的地址',`frame_blank` boolean DEFAULT false COMMENT '内嵌iframe是否新窗口打开',`keep_alive` boolean DEFAULT true COMMENT '开启keep-alive',`parent_id` bigint NOT NULL COMMENT '父级',`application_id` bigint NOT NULL,`level` bigint NOT NULL COMMENT '层级',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_menu_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_menu_name` UNIQUE (`name`))
+
+2024/07/09 14:20:01 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[112.462ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:01 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[266.447ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:01 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[257.984ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:01 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.623ms] [rows:0] CREATE TABLE `ikubeops_portal_account_application` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`account_id` bigint NOT NULL COMMENT '用户',`application_id` bigint NOT NULL COMMENT '应用',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_account_application_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_account_app` (`account_id`,`application_id`))
+
+2024/07/09 14:20:01 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[110.421ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:02 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.993ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:02 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[280.853ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:02 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.561ms] [rows:0] CREATE TABLE `ikubeops_portal_role` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '角色',`application_id` bigint NOT NULL COMMENT '应用',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_role_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_role_name` UNIQUE (`name`))
+
+2024/07/09 14:20:02 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[110.633ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:02 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.105ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:03 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[263.004ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:03 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[168.314ms] [rows:0] CREATE TABLE `ikubeops_portal_role_menu` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`role_id` bigint NOT NULL COMMENT '角色',`menu_id` bigint NOT NULL COMMENT '菜单',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_role_menu_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_role_menu` (`role_id`,`menu_id`))
+
+2024/07/09 14:20:03 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[110.963ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:03 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.961ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:03 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[260.665ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:04 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.634ms] [rows:0] CREATE TABLE `ikubeops_portal_role_account` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`role_id` bigint NOT NULL COMMENT '角色',`account_id` bigint NOT NULL COMMENT '用户',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_role_account_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_role_account` (`role_id`,`account_id`))
+
+2024/07/09 14:20:04 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[112.459ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:04 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[233.395ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:04 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.867ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:04 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.938ms] [rows:0] CREATE TABLE `ikubeops_portal_upms` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '权限名称',`role_id` bigint NOT NULL COMMENT '角色',`resource` varchar(255) NOT NULL COMMENT '资源',`type` tinyint NOT NULL COMMENT '操作类型',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_upms_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_upms_name` UNIQUE (`name`))
+
+2024/07/09 14:20:04 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[112.434ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:05 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[235.457ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:05 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[261.992ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:05 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[186.033ms] [rows:0] CREATE TABLE `ikubeops_portal_account` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`user_name` varchar(32) NOT NULL COMMENT '姓名',`account` varchar(32) NOT NULL COMMENT '账号',`password` varchar(256) NOT NULL COMMENT '密码',`icon` varchar(256) NOT NULL COMMENT '头像',`mobile` char(11) NOT NULL COMMENT '手机号',`email` varchar(36) NOT NULL COMMENT '邮箱',`work_number` varchar(24) NOT NULL COMMENT '工号',`hire_date` date NOT NULL COMMENT '入职时间',`is_frozen` boolean NOT NULL DEFAULT false COMMENT '是否冻结',`is_disabled` boolean NOT NULL DEFAULT false COMMENT '是否禁用',`is_leave` boolean NOT NULL DEFAULT false COMMENT '是否离职',`position` bigint NOT NULL COMMENT '职位',`organization_id` bigint NOT NULL COMMENT '组织',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_account_deleted_at` (`deleted_at`))
+
+2024/07/09 14:20:05 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[114.112ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:05 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[226.050ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:06 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[264.653ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:06 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.537ms] [rows:0] CREATE TABLE `ikubeops_portal_organization` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '团队',`parent_id` bigint NOT NULL COMMENT '父级',`level` bigint NOT NULL COMMENT '层级',`desc` varchar(56) NOT NULL COMMENT '描述',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_organization_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_organization_name` UNIQUE (`name`))
+
+2024/07/09 14:20:48 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[108.261ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[247.163ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.643ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[145.330ms] [rows:0] CREATE TABLE `ikubeops_portal_application` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '应用',`path` varchar(10) NOT NULL COMMENT '路径',`icon` varchar(32) NOT NULL COMMENT '图标',`desc` varchar(56) NOT NULL COMMENT '描述',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_application_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_ikubeops_portal_application_name` (`name`),CONSTRAINT `uni_ikubeops_portal_application_path` UNIQUE (`path`),CONSTRAINT `uni_ikubeops_portal_application_icon` UNIQUE (`icon`))
+
+2024/07/09 14:20:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[111.699ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[225.540ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[271.420ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[73.819ms] [rows:0] CREATE TABLE `ikubeops_portal_menu` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`path` varchar(32) NOT NULL COMMENT '路由路径',`name` varchar(32) NOT NULL COMMENT '唯一标识名称',`component` varchar(255) NOT NULL COMMENT '组件路径',`redirect` varchar(255) COMMENT '重定向路径',`title` varchar(26) NOT NULL COMMENT '菜单标题',`icon` varchar(32) COMMENT '菜单图标',`expanded` boolean DEFAULT false COMMENT '是否默认展开',`order_no` tinyint NOT NULL COMMENT '菜单顺序编号',`hidden` boolean DEFAULT false COMMENT '是否隐藏菜单',`hidden_breadcrumb` boolean DEFAULT false COMMENT '是否隐藏面包屑',`single` boolean DEFAULT false COMMENT '是否单级菜单显示',`frame_src` varchar(255) COMMENT '内嵌iframe的地址',`frame_blank` boolean DEFAULT false COMMENT '内嵌iframe是否新窗口打开',`keep_alive` boolean DEFAULT true COMMENT '开启keep-alive',`parent_id` bigint NOT NULL COMMENT '父级',`application_id` bigint NOT NULL,`level` bigint NOT NULL COMMENT '层级',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_menu_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_menu_name` UNIQUE (`name`))
+
+2024/07/09 14:20:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[111.030ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[224.333ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[261.299ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.654ms] [rows:0] CREATE TABLE `ikubeops_portal_account_application` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`account_id` bigint NOT NULL COMMENT '用户',`application_id` bigint NOT NULL COMMENT '应用',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_account_application_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_account_app` (`account_id`,`application_id`))
+
+2024/07/09 14:20:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[127.243ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[222.696ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.887ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.968ms] [rows:0] CREATE TABLE `ikubeops_portal_role` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '角色',`application_id` bigint NOT NULL COMMENT '应用',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_role_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_role_name` UNIQUE (`name`))
+
+2024/07/09 14:20:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[112.725ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:52 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[231.470ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:52 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[269.921ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:52 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.651ms] [rows:0] CREATE TABLE `ikubeops_portal_role_menu` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`role_id` bigint NOT NULL COMMENT '角色',`menu_id` bigint NOT NULL COMMENT '菜单',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_role_menu_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_role_menu` (`role_id`,`menu_id`))
+
+2024/07/09 14:20:52 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[115.215ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:52 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[227.087ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:53 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[261.236ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:53 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[186.936ms] [rows:0] CREATE TABLE `ikubeops_portal_role_account` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`role_id` bigint NOT NULL COMMENT '角色',`account_id` bigint NOT NULL COMMENT '用户',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_role_account_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_role_account` (`role_id`,`account_id`))
+
+2024/07/09 14:20:53 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[112.499ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:53 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[227.586ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:53 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[263.880ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[148.498ms] [rows:0] CREATE TABLE `ikubeops_portal_upms` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '权限名称',`role_id` bigint NOT NULL COMMENT '角色',`resource` varchar(255) NOT NULL COMMENT '资源',`type` tinyint NOT NULL COMMENT '操作类型',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_upms_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_upms_name` UNIQUE (`name`))
+
+2024/07/09 14:20:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[112.928ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[237.266ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[256.252ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.998ms] [rows:0] CREATE TABLE `ikubeops_portal_account` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`user_name` varchar(32) NOT NULL COMMENT '姓名',`account` varchar(32) NOT NULL COMMENT '账号',`password` varchar(256) NOT NULL COMMENT '密码',`icon` varchar(256) NOT NULL COMMENT '头像',`mobile` char(11) NOT NULL COMMENT '手机号',`email` varchar(36) NOT NULL COMMENT '邮箱',`work_number` varchar(24) NOT NULL COMMENT '工号',`hire_date` date NOT NULL COMMENT '入职时间',`is_frozen` boolean NOT NULL DEFAULT false COMMENT '是否冻结',`is_disabled` boolean NOT NULL DEFAULT false COMMENT '是否禁用',`is_leave` boolean NOT NULL DEFAULT false COMMENT '是否离职',`position` bigint NOT NULL COMMENT '职位',`organization_id` bigint NOT NULL COMMENT '组织',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_account_deleted_at` (`deleted_at`))
+
+2024/07/09 14:20:55 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[111.345ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:20:55 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[230.096ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:20:55 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[277.645ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:20:55 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.590ms] [rows:0] CREATE TABLE `ikubeops_portal_organization` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '团队',`parent_id` bigint NOT NULL COMMENT '父级',`level` bigint NOT NULL COMMENT '层级',`desc` varchar(56) NOT NULL COMMENT '描述',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_organization_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_organization_name` UNIQUE (`name`))
+
+2024/07/09 14:24:28 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[132.977ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:28 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.232ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:28 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[260.392ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:24:28 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.490ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:28 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[225.375ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:29 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[273.506ms] [rows:-] SELECT * FROM `ikubeops_portal_application` LIMIT ?
+
+2024/07/09 14:24:29 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[260.515ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ORDINAL_POSITION
+
+2024/07/09 14:24:29 
+[103.906ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:29 
+[225.355ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:30 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[280.666ms] [rows:5] 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'gin_demo' 
+	AND TABLE_NAME = 'ikubeops_portal_application' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2024/07/09 14:24:30 
+[148.253ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:30 
+[234.562ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:30 
+[260.581ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = ? AND table_name = ? AND constraint_name = ?
+
+2024/07/09 14:24:30 
+[146.804ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:31 
+[229.293ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:31 
+[261.622ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:31 
+[145.478ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:31 
+[223.540ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:32 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[262.786ms] [rows:5] 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'gin_demo' 
+	AND TABLE_NAME = 'ikubeops_portal_application' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2024/07/09 14:24:32 
+[160.334ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:32 
+[225.661ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:32 
+[260.853ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = ? AND table_name = ? AND constraint_name = ?
+
+2024/07/09 14:24:32 
+[148.733ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:33 
+[224.495ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:33 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[274.817ms] [rows:5] 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'gin_demo' 
+	AND TABLE_NAME = 'ikubeops_portal_application' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2024/07/09 14:24:33 
+[146.675ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:33 
+[224.904ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:34 
+[259.261ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = ? AND table_name = ? AND constraint_name = ?
+
+2024/07/09 14:24:34 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.790ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:34 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[239.383ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:34 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[261.466ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:34 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[148.944ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:35 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[228.949ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:35 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[260.373ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:35 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.467ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:35 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.372ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:35 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[258.966ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:24:36 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.665ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:36 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[225.617ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:36 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[317.432ms] [rows:-] SELECT * FROM `ikubeops_portal_menu` LIMIT ?
+
+2024/07/09 14:24:36 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[226.257ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ORDINAL_POSITION
+
+2024/07/09 14:24:37 
+[113.920ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:37 
+[224.304ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:37 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[270.638ms] [rows:3] 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'gin_demo' 
+	AND TABLE_NAME = 'ikubeops_portal_menu' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2024/07/09 14:24:37 
+[147.222ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:37 
+[223.395ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:38 
+[256.528ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = ? AND table_name = ? AND constraint_name = ?
+
+2024/07/09 14:24:38 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[145.010ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:38 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[249.179ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:38 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.838ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:38 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[145.605ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:39 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[224.977ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:39 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[258.983ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:24:39 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[166.922ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:39 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[226.018ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[260.113ms] [rows:-] SELECT * FROM `ikubeops_portal_account_application` LIMIT ?
+
+2024/07/09 14:24:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[258.866ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ORDINAL_POSITION
+
+2024/07/09 14:24:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[150.906ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[231.534ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[261.940ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:41 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.168ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:41 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[224.155ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:41 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[282.253ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:41 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.169ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[225.306ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.024ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:24:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[149.164ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[239.509ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[261.782ms] [rows:-] SELECT * FROM `ikubeops_portal_role` LIMIT ?
+
+2024/07/09 14:24:43 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[270.843ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ORDINAL_POSITION
+
+2024/07/09 14:24:43 
+[147.003ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:43 
+[228.005ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:43 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.421ms] [rows:3] 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'gin_demo' 
+	AND TABLE_NAME = 'ikubeops_portal_role' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2024/07/09 14:24:43 
+[146.490ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:44 
+[223.270ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:44 
+[259.052ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = ? AND table_name = ? AND constraint_name = ?
+
+2024/07/09 14:24:44 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[145.713ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:44 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[245.447ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.339ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[148.068ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[224.814ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[260.205ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:24:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[157.482ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:46 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[224.573ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:46 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[264.085ms] [rows:-] SELECT * FROM `ikubeops_portal_role_menu` LIMIT ?
+
+2024/07/09 14:24:46 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[262.657ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ORDINAL_POSITION
+
+2024/07/09 14:24:46 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[148.353ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:47 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[240.320ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:47 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[266.275ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:47 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.075ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:47 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.975ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:47 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[277.576ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:48 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.301ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:48 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[242.036ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:48 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.742ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:24:48 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[149.615ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[253.460ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[258.214ms] [rows:-] SELECT * FROM `ikubeops_portal_role_account` LIMIT ?
+
+2024/07/09 14:24:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[261.542ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ORDINAL_POSITION
+
+2024/07/09 14:24:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.942ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:49 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[231.261ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[260.542ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.460ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[224.149ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.195ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:50 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[148.303ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[242.804ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[265.033ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:24:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[148.363ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:51 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[226.729ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:52 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[272.928ms] [rows:-] SELECT * FROM `ikubeops_portal_upms` LIMIT ?
+
+2024/07/09 14:24:52 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[270.481ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ORDINAL_POSITION
+
+2024/07/09 14:24:52 
+[112.270ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:52 
+[222.867ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:53 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[262.555ms] [rows:3] 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'gin_demo' 
+	AND TABLE_NAME = 'ikubeops_portal_upms' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2024/07/09 14:24:53 
+[151.906ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:53 
+[222.300ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:53 
+[260.648ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = ? AND table_name = ? AND constraint_name = ?
+
+2024/07/09 14:24:53 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[145.656ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[225.447ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[278.305ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.404ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.860ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:54 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[262.573ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:24:55 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[148.712ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:55 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[238.019ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:55 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[293.164ms] [rows:-] SELECT * FROM `ikubeops_portal_account` LIMIT ?
+
+2024/07/09 14:24:55 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[225.947ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ORDINAL_POSITION
+
+2024/07/09 14:24:56 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[117.516ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:56 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[237.866ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:56 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[255.301ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:24:56 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[146.930ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:56 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[225.699ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:57 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[262.136ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:24:57 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[168.688ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:57 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.216ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:57 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[257.535ms] [rows:-] SELECT * FROM `ikubeops_portal_organization` LIMIT ?
+
+2024/07/09 14:24:58 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.010ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ORDINAL_POSITION
+
+2024/07/09 14:24:58 
+[112.859ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:58 
+[248.090ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:58 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[263.051ms] [rows:3] 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'gin_demo' 
+	AND TABLE_NAME = 'ikubeops_portal_organization' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2024/07/09 14:24:58 
+[145.510ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:59 
+[225.261ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:24:59 
+[271.564ms] [rows:-] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = ? AND table_name = ? AND constraint_name = ?
+
+2024/07/09 14:24:59 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[152.473ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:24:59 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[224.098ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:00 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[261.286ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = ? AND table_name = ? AND index_name = ?
+
+2024/07/09 14:25:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[108.961ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:25:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.513ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.457ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:25:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[144.359ms] [rows:0] CREATE TABLE `ikubeops_portal_application` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '应用',`path` varchar(10) NOT NULL COMMENT '路径',`icon` varchar(32) NOT NULL COMMENT '图标',`desc` varchar(56) NOT NULL COMMENT '描述',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_application_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_ikubeops_portal_application_name` (`name`),CONSTRAINT `uni_ikubeops_portal_application_path` UNIQUE (`path`),CONSTRAINT `uni_ikubeops_portal_application_icon` UNIQUE (`icon`))
+
+2024/07/09 14:25:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[110.817ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:25:40 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[245.127ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:41 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[260.320ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:25:41 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[72.373ms] [rows:0] CREATE TABLE `ikubeops_portal_menu` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`path` varchar(32) NOT NULL COMMENT '路由路径',`name` varchar(32) NOT NULL COMMENT '唯一标识名称',`component` varchar(255) NOT NULL COMMENT '组件路径',`redirect` varchar(255) COMMENT '重定向路径',`title` varchar(26) NOT NULL COMMENT '菜单标题',`icon` varchar(32) COMMENT '菜单图标',`expanded` tinyint(1) DEFAULT false COMMENT '是否默认展开',`order_no` tinyint NOT NULL COMMENT '菜单顺序编号',`hidden` boolean DEFAULT false COMMENT '是否隐藏菜单',`hidden_breadcrumb` tinyint(1) DEFAULT false COMMENT '是否隐藏面包屑',`single` tinyint(1) DEFAULT false COMMENT '是否单级菜单显示',`frame_src` varchar(255) COMMENT '内嵌iframe的地址',`frame_blank` tinyint(1) DEFAULT false COMMENT '内嵌iframe是否新窗口打开',`keep_alive` tinyint(1) DEFAULT true COMMENT '开启keep-alive',`parent_id` bigint NOT NULL COMMENT '父级',`application_id` bigint NOT NULL,`level` bigint NOT NULL COMMENT '层级',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_menu_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_menu_name` UNIQUE (`name`))
+
+2024/07/09 14:25:41 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[111.550ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:25:41 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[224.843ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:41 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[276.533ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:25:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[145.255ms] [rows:0] CREATE TABLE `ikubeops_portal_account_application` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`account_id` bigint NOT NULL COMMENT '用户',`application_id` bigint NOT NULL COMMENT '应用',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_account_application_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_account_app` (`account_id`,`application_id`))
+
+2024/07/09 14:25:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[111.019ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:25:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.216ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[260.197ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:25:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.002ms] [rows:0] CREATE TABLE `ikubeops_portal_role` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '角色',`application_id` bigint NOT NULL COMMENT '应用',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_role_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_role_name` UNIQUE (`name`))
+
+2024/07/09 14:25:42 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[124.277ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:25:43 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[222.266ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:43 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[257.985ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:25:43 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[187.399ms] [rows:0] CREATE TABLE `ikubeops_portal_role_menu` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`role_id` bigint NOT NULL COMMENT '角色',`menu_id` bigint NOT NULL COMMENT '菜单',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_role_menu_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_role_menu` (`role_id`,`menu_id`))
+
+2024/07/09 14:25:43 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[111.476ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:25:43 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[240.977ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:44 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.433ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:25:44 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.026ms] [rows:0] CREATE TABLE `ikubeops_portal_role_account` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`role_id` bigint NOT NULL COMMENT '角色',`account_id` bigint NOT NULL COMMENT '用户',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_role_account_deleted_at` (`deleted_at`),UNIQUE INDEX `idx_role_account` (`role_id`,`account_id`))
+
+2024/07/09 14:25:44 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[110.771ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:25:44 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[223.865ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[282.781ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:25:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[147.651ms] [rows:0] CREATE TABLE `ikubeops_portal_upms` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '权限名称',`role_id` bigint NOT NULL COMMENT '角色',`resource` varchar(255) NOT NULL COMMENT '资源',`type` tinyint NOT NULL COMMENT '操作类型',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_upms_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_upms_name` UNIQUE (`name`))
+
+2024/07/09 14:25:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[111.902ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:25:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[222.873ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[259.010ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:25:45 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[145.521ms] [rows:0] CREATE TABLE `ikubeops_portal_account` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`user_name` varchar(32) NOT NULL COMMENT '姓名',`account` varchar(32) NOT NULL COMMENT '账号',`password` varchar(256) NOT NULL COMMENT '密码',`icon` varchar(256) NOT NULL COMMENT '头像',`mobile` char(11) NOT NULL COMMENT '手机号',`email` varchar(36) NOT NULL COMMENT '邮箱',`work_number` varchar(24) NOT NULL COMMENT '工号',`hire_date` date NOT NULL COMMENT '入职时间',`is_frozen` tinyint(1) NOT NULL DEFAULT false COMMENT '是否冻结',`is_disabled` tinyint(1) NOT NULL DEFAULT false COMMENT '是否禁用',`is_leave` tinyint(1) NOT NULL DEFAULT false COMMENT '是否离职',`position` bigint NOT NULL COMMENT '职位',`organization_id` bigint NOT NULL COMMENT '组织',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_account_deleted_at` (`deleted_at`))
+
+2024/07/09 14:25:46 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[110.481ms] [rows:-] SELECT DATABASE()
+
+2024/07/09 14:25:46 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[258.101ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gin_demo%' ORDER BY SCHEMA_NAME='gin_demo' DESC,SCHEMA_NAME limit 1
+
+2024/07/09 14:25:46 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[265.428ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ? AND table_type = ?
+
+2024/07/09 14:25:46 /Users/devops/data/template/golang/ikube-gin-starter/cmd/db.go:88
+[231.193ms] [rows:0] CREATE TABLE `ikubeops_portal_organization` (`id` bigint unsigned AUTO_INCREMENT COMMENT '自增主键',`created_at` datetime COMMENT '创建时间',`updated_at` datetime COMMENT '更新时间',`deleted_at` datetime COMMENT '删除时间',`name` varchar(32) NOT NULL COMMENT '团队',`parent_id` bigint NOT NULL COMMENT '父级',`level` bigint NOT NULL COMMENT '层级',`desc` varchar(56) NOT NULL COMMENT '描述',PRIMARY KEY (`id`),INDEX `idx_ikubeops_portal_organization_deleted_at` (`deleted_at`),CONSTRAINT `uni_ikubeops_portal_organization_name` UNIQUE (`name`))
+
+2024/07/09 15:38:09 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:36
+[34.565ms] [rows:0] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 15:38:12 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:36
+[34.093ms] [rows:0] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 15:38:17 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:36
+[33.569ms] [rows:0] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 15:55:12 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[402.991ms] [rows:1] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 15:55:30 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/model/user.go:62
+[216.425ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`id` = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 15:55:30 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[640.451ms] [rows:1] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 15:55:44 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/model/user.go:62
+[236.064ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`id` = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 15:55:44 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[660.062ms] [rows:1] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 15:55:56 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/model/user.go:62
+[218.620ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`id` = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 15:55:57 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[649.865ms] [rows:1] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 15:55:58 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/model/user.go:62
+[215.167ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`id` = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 15:55:58 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53 Error 1062 (23000): Duplicate entry 'devops小组' for key 'ikubeops_portal_organization.uni_ikubeops_portal_organization_name'
+[628.822ms] [rows:0] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 15:56:16 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:36
+[45.033ms] [rows:4] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 15:56:51 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:36
+[34.089ms] [rows:4] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 15:57:00 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:36
+[141.457ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE parent_id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:08:33 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:36
+[35.929ms] [rows:4] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:09:10 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:36
+[36.656ms] [rows:4] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:24:45 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:72
+[976.189ms] [rows:1] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 16:25:40 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/model/user.go:63
+[235.934ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`id` = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 16:25:41 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:72
+[692.739ms] [rows:1] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 16:25:46 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/model/user.go:63
+[223.885ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`id` = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 16:25:46 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:72
+[651.698ms] [rows:1] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 16:26:04 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:72
+[396.047ms] [rows:1] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 16:30:34 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:104 Error 1062 (23000): Duplicate entry '云原生c' for key 'ikubeops_portal_organization.uni_ikubeops_portal_organization_name'
+[390.878ms] [rows:0] INSERT INTO `ikubeops_portal_organization` (`created_at`,`updated_at`,`deleted_at`,`name`,`parent_id`,`level`,`desc`) VALUES (?,?,?,?,?,?,?)
+
+2024/07/09 16:30:40 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:68
+[68.246ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:34:27 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:69
+[68.278ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:34:35 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:69
+[68.103ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:34:56 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:69
+[77.453ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:35:13 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:69
+[67.853ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:35:29 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:69
+[67.695ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:36:17 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:69
+[68.601ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:36:28 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:69
+[69.768ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:37:09 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:70
+[81.612ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:37:11 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:70
+[67.473ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:38:10 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[68.456ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:38:12 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[71.527ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:38:54 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[68.716ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:39:54 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[75.456ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:40:01 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[67.942ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:40:20 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[68.157ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:40:49 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[69.108ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:40:51 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[67.108ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:41:21 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[68.481ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:41:23 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[71.071ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:42:02 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[97.378ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:42:04 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[67.128ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:42:49 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[81.409ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:44:11 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[68.110ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:44:54 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[68.604ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:47:11 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[82.288ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:47:13 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[67.633ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:48:12 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:71
+[69.115ms] [rows:8] SELECT * FROM `ikubeops_portal_organization` WHERE `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:49:29 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:99
+[147.627ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE name like ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:49:30 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[253.311ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 16:49:30 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[291.401ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 16:52:10 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:96
+[143.631ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE name like ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:52:11 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[247.826ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 16:52:11 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[246.390ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 16:52:53 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:96
+[210.531ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE name like ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 16:52:53 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[260.641ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 16:52:53 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[272.255ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 17:00:24 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:96
+[141.385ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE name like ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 17:00:24 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[247.521ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 17:00:24 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[255.661ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?

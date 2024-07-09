@@ -1,5 +1,5 @@
 app:
-  http_port: 9999
+  http_port: 9909
   http_addr: "0.0.0.0"
   max_header_size: 1 # 单位 m
   read_timeout: 60 # 单位 s
@@ -9,6 +9,7 @@ app:
   cert_file: "config/www.ikubeops.local_chain.crt"
   key_file: "config/www.ikubeops.local_key.key"
   shutdown_timeout: 60
+  language: "zh"
 
 logger:
   output: "console" # console | file
@@ -22,21 +23,28 @@ logger:
 
 mysql:
   host: "172.16.1.61"
-  port: 3306
+#  host: "127.0.0.1"
+  password: "123456"
+#  password: "Ikubeops@1998"
+  db_name: "gin_demo"
+#  db_name: "demo"
+#  port: 3306
+  port: 3307
   user: "root"
-  password: "12345678"
-  db_name: "web_template"
   max_open_conns: 200
   max_idle_conns: 100
   level: "Info"  # Error, Warn. Info
-  opts: "charset=utf8&parseTime=True&loc=Local"
+  opts: "charset=utf8mb4&parseTime=True&loc=Local&&timeout=10s"
   log-to-file: true
-  enable: false # true | false
+  enable: true # true | false
 
 redis:
-  host: "127.0.0.1"
+#  host: "127.0.0.1"
+  host: "172.16.1.61"
+  password: "123456"
+#  password: "Ikubeops@1998"
+
   port: 6379
   db: 0
-  password: "123456"
   pool_size: 100
   enable: true # true | false

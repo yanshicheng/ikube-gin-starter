@@ -16,7 +16,7 @@ func TestIkubeGorm(t *testing.T) {
 	logToFile := false // 这里可以根据需要修改
 
 	// 初始化一个新的 IkubeGorm 实例
-	ikube, err := mysql.NewIkubeGorm(dsn, maxIdleConns, maxOpenConns, logToFile, "error")
+	ikube, err := mysql.InitIkubeGorm(dsn, maxIdleConns, maxOpenConns, logToFile, "error")
 	assert.NoError(t, err, "初始化 IkubeGorm 实例应该成功")
 
 	// 确保数据库实例不为空

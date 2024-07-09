@@ -9,35 +9,35 @@ import (
 )
 
 var (
-	_log unsafe.Pointer // 指向 coreLogger 的指针。通过 atomic.LoadPointer 访问。
+	_log unsafe.Pointer // Pointer to coreLogger, accessed via atomic.LoadPointer
 )
 
 type LogOption = zap.Option
 
-// coreLogger 是日志核心结构体，包含了多个日志记录器和配置信息。
+// coreLogger is the core logging structure, containing multiple loggers and configuration information.
 type coreLogger struct {
-	logger       *Logger         // 基础日志记录器
-	rootLogger   *zap.Logger     // 没有任何配置选项的根日志记录器
-	webLogger    *Logger         // 用于 Web 日志记录的日志记录器
-	globalLogger *zap.Logger     // 全局日志记录器
-	atom         zap.AtomicLevel // 动态日志级别设置
+	logger       *Logger         // Basic logger
+	rootLogger   *zap.Logger     // Root logger without any configuration options
+	webLogger    *Logger         // Logger for web logging
+	globalLogger *zap.Logger     // Global logger
+	atom         zap.AtomicLevel // Dynamic log level setting
 }
 
-// Logger 是包装了 zap.Logger 和 zap.SugaredLogger 的日志结构体。
+// Logger wraps zap.Logger and zap.SugaredLogger.
 type Logger struct {
 	logger *zap.Logger
 	sugar  *zap.SugaredLogger
 }
 
-// storeLogger 存储日志记录器实例到 _log 中。
+// storeLogger stores the logger instance in _log.
 func storeLogger(l *coreLogger) {
 	if old := loadLogger(); old != nil {
-		old.rootLogger.Sync() // 同步旧的根日志记录器，确保日志被写入文件。
+		old.rootLogger.Sync() // Sync the old root logger to ensure logs are written to file.
 	}
 	atomic.StorePointer(&_log, unsafe.Pointer(l))
 }
 
-// newLogger 创建一个新的 Logger 实例。
+// newLogger creates a new Logger instance.
 func newLogger(rootLogger *zap.Logger, selector string, options ...LogOption) *Logger {
 	log := rootLogger.
 		WithOptions().
@@ -46,7 +46,7 @@ func newLogger(rootLogger *zap.Logger, selector string, options ...LogOption) *L
 	return &Logger{log, log.Sugar()}
 }
 
-// newGinLogger 创建一个新的用于 Gin 框架的 Logger 实例。
+// newGinLogger creates a new Logger instance for the Gin framework.
 func newGinLogger(rootLogger *zap.Logger, selector string, options ...LogOption) *Logger {
 	log := rootLogger.
 		WithOptions().
@@ -55,37 +55,40 @@ func newGinLogger(rootLogger *zap.Logger, selector string, options ...LogOption)
 	return &Logger{log, log.Sugar()}
 }
 
-// NewLogger 初始化日志记录器，设置全局日志记录器和 webLogger。
+// NewLogger initializes the logger, setting the global logger and webLogger.
 func NewLogger(e *IkubeLogger) error {
-	atom := zap.NewAtomicLevel()           // 创建一个新的原子级别控制器
-	logger, webLogger := e.EncoderConfig() // 获取编码器配置信息
-	storeLogger(&coreLogger{
+	atom := zap.NewAtomicLevel() // Create a new atomic level controller
+	logger := e.encoderConfig()  // Get the encoder configuration
+
+	coreLoggerInstance := &coreLogger{
 		rootLogger:   logger,
 		logger:       newLogger(logger, ""),
 		globalLogger: logger.WithOptions(),
-		webLogger:    newGinLogger(webLogger, ""),
+		webLogger:    newGinLogger(logger, ""),
 		atom:         atom,
-	})
+	}
+
+	storeLogger(coreLoggerInstance)
 	return nil
 }
 
-// Named 返回一个添加了新路径段的日志记录器。
+// Named returns a logger with a new path segment.
 func (l *Logger) Named(name string) *Logger {
 	logger := l.logger.Named(name)
 	return &Logger{logger, logger.Sugar()}
 }
 
-// SetLevel 动态设置日志记录器的日志级别。
+// SetLevel dynamically sets the logger's log level.
 func (l *Logger) SetLevel(level string) {
 	var zapLevel zap.AtomicLevel
 	zapLevel.UnmarshalText([]byte(level))
 	l.logger.Core().Enabled(zapLevel.Level())
 }
 
-// Option 是用于配置 zap.Config 的函数类型。
+// Option is a function type for configuring zap.Config.
 type Option func(*zap.Config)
 
-// WithCaller 在日志输出中启用调用者字段。
+// WithCaller enables the caller field in log output.
 func WithCaller(caller bool) Option {
 	return func(config *zap.Config) {
 		config.Development = !caller
@@ -93,173 +96,191 @@ func WithCaller(caller bool) Option {
 	}
 }
 
-// Print 使用 fmt.Sprint 构造并记录一条消息。
+// Print logs a message using fmt.Sprint.
 func (l *Logger) Print(args ...interface{}) {
 	l.sugar.Debug(args...)
 }
 
-// Println 使用 fmt.Sprint 构造并记录一条消息。
+// Println logs a message using fmt.Sprint.
 func (l *Logger) Println(args ...interface{}) {
 	l.sugar.Debug(args...)
 }
 
-// Debug 使用 fmt.Sprint 构造并记录一条调试级别的消息。
+// Debug logs a debug-level message using fmt.Sprint.
 func (l *Logger) Debug(args ...interface{}) {
 	l.sugar.Debug(args...)
 }
 
-// Info 使用 fmt.Sprint 构造并记录一条信息级别的消息。
+// Info logs an info-level message using fmt.Sprint.
 func (l *Logger) Info(args ...interface{}) {
 	l.sugar.Info(args...)
 }
 
-// Warn 使用 fmt.Sprint 构造并记录一条警告级别的消息。
+// Warn logs a warning-level message using fmt.Sprint.
 func (l *Logger) Warn(args ...interface{}) {
 	l.sugar.Warn(args...)
 }
 
-// Error 使用 fmt.Sprint 构造并记录一条错误级别的消息。
+// Error logs an error-level message using fmt.Sprint.
 func (l *Logger) Error(args ...interface{}) {
 	l.sugar.Error(args...)
 }
 
-// Fatal 使用 fmt.Sprint 构造并记录一条致命错误级别的消息，然后调用 os.Exit(1)。
+// Fatal logs a fatal error-level message using fmt.Sprint, then calls os.Exit(1).
 func (l *Logger) Fatal(args ...interface{}) {
 	l.sugar.Fatal(args...)
 }
 
-// Panic 使用 fmt.Sprint 构造并记录一条消息，然后 panic。
+// Panic logs a message using fmt.Sprint, then panics.
 func (l *Logger) Panic(args ...interface{}) {
 	l.sugar.Panic(args...)
 }
 
-// DPanic 使用 fmt.Sprint 构造并记录一条消息。在开发模式下，日志记录器会 panic。
+// DPanic logs a message using fmt.Sprint. In development mode, the logger panics.
 func (l *Logger) DPanic(args ...interface{}) {
 	l.sugar.DPanic(args...)
 }
 
-// IsDebug 检查日志记录器是否启用了调试级别。
+// IsDebug checks if the logger is enabled for the debug level.
 func (l *Logger) IsDebug() bool {
 	return l.logger.Check(zapcore.DebugLevel, "") != nil
 }
 
-// Printf 使用 fmt.Sprintf 记录一个格式化的消息。
+// Printf logs a formatted message using fmt.Sprintf.
 func (l *Logger) Printf(format string, args ...interface{}) {
 	l.sugar.Debugf(format, args...)
 }
 
-// Debugf 使用 fmt.Sprintf 记录一个格式化的调试级别的消息。
+// Debugf logs a formatted debug-level message using fmt.Sprintf.
 func (l *Logger) Debugf(format string, args ...interface{}) {
 	l.sugar.Debugf(format, args...)
 }
 
-// Infof 使用 fmt.Sprintf 记录一个格式化的信息级别的消息。
+// Infof logs a formatted info-level message using fmt.Sprintf.
 func (l *Logger) Infof(format string, args ...interface{}) {
 	l.sugar.Infof(format, args...)
 }
 
-// Warnf 使用 fmt.Sprintf 记录一个格式化的警告级别的消息。
+// Warnf logs a formatted warning-level message using fmt.Sprintf.
 func (l *Logger) Warnf(format string, args ...interface{}) {
 	l.sugar.Warnf(format, args...)
 }
 
-// Errorf 使用 fmt.Sprintf 记录一个格式化的错误级别的消息。
+// Errorf logs a formatted error-level message using fmt.Sprintf.
 func (l *Logger) Errorf(format string, args ...interface{}) {
 	l.sugar.Errorf(format, args...)
 }
 
-// Fatalf 使用 fmt.Sprintf 记录一个格式化的致命错误级别的消息，然后调用 os.Exit(1)。
+// Fatalf logs a formatted fatal error-level message using fmt.Sprintf, then calls os.Exit(1).
 func (l *Logger) Fatalf(format string, args ...interface{}) {
 	l.sugar.Fatalf(format, args...)
 }
 
-// Panicf 使用 fmt.Sprintf 记录一个格式化的消息，然后 panic。
+// Panicf logs a formatted message using fmt.Sprintf, then panics.
 func (l *Logger) Panicf(format string, args ...interface{}) {
 	l.sugar.Panicf(format, args...)
 }
 
-// DPanicf 使用 fmt.Sprintf 记录一个格式化的消息。在开发模式下，日志记录器会 panic。
+// DPanicf logs a formatted message using fmt.Sprintf. In development mode, the logger panics.
 func (l *Logger) DPanicf(format string, args ...interface{}) {
 	l.sugar.DPanicf(format, args...)
 }
 
-// Debugw 记录一个带有额外上下文的调试级别的消息。
+// Debugw logs a debug-level message with additional context.
 func (l *Logger) Debugw(msg string, fields ...Field) {
 	l.sugar.Debugw(msg, transfer(fields)...)
 }
 
-// Infow 记录一个带有额外上下文的信息级别的消息。
+// Infow logs an info-level message with additional context.
 func (l *Logger) Infow(msg string, fields ...Field) {
 	l.sugar.Infow(msg, transfer(fields)...)
 }
 
-// Warnw 记录一个带有额外上下文的警告级别的消息。
+// Warnw logs a warning-level message with additional context.
 func (l *Logger) Warnw(msg string, fields ...Field) {
 	l.sugar.Warnw(msg, transfer(fields)...)
 }
 
-// Errorw 记录一个带有额外上下文的错误级别的消息。
+// Errorw logs an error-level message with additional context.
 func (l *Logger) Errorw(msg string, fields ...Field) {
 	l.sugar.Errorw(msg, transfer(fields)...)
 }
 
-// Fatalw 记录一个带有额外上下文的致命错误级别的消息，然后调用 os.Exit(1)。
+// Fatalw logs a fatal error-level message with additional context, then calls os.Exit(1).
 func (l *Logger) Fatalw(msg string, fields ...Field) {
 	l.sugar.Fatalw(msg, transfer(fields)...)
 }
 
-// Panicw 记录一个带有额外上下文的消息，然后 panic。
+// Panicw logs a message with additional context, then panics.
 func (l *Logger) Panicw(msg string, fields ...Field) {
 	l.sugar.Panicw(msg, transfer(fields)...)
 }
 
-// DPanicw 记录一个带有额外上下文的消息。在开发模式下，日志记录器会 panic。
+// DPanicw logs a message with additional context. In development mode, the logger panics.
 func (l *Logger) DPanicw(msg string, fields ...Field) {
 	l.sugar.DPanicw(msg, transfer(fields)...)
 }
 
-// Field 是键值对，用于传递额外的上下文信息。
+// Field is a key-value pair for passing additional context information.
 type Field struct {
-	Key   string      // 键
-	Value interface{} // 值
+	Key   string      // Key
+	Value interface{} // Value
 }
 
-// transfer 将 Field 转换为 zap.Any 类型的切片，用于日志记录。
+// transfer converts Field to a slice of zap.Any for logging.
 func transfer(m []Field) (ma []interface{}) {
 	for i := range m {
 		ma = append(ma, zap.Any(m[i].Key, m[i].Value))
 	}
-
 	return
 }
 
-// globalLogger 返回全局日志记录器。
+// globalLogger returns the global logger.
 func globalLogger() *zap.Logger {
-	return loadLogger().globalLogger
+	cl := loadLogger()
+	if cl == nil {
+		panic("global logger is not initialized")
+	}
+	return cl.globalLogger
 }
 
-// loadLogger 加载当前的日志记录器实例。
+// loadLogger loads the current logger instance.
 func loadLogger() *coreLogger {
 	p := atomic.LoadPointer(&_log)
+	if p == nil {
+		return nil
+	}
 	return (*coreLogger)(p)
 }
 
-// SetLevel 设置全局日志级别。
+// SetLevel sets the global log level.
 func SetLevel(lv Level) {
-	loadLogger().atom.SetLevel(lv.zapLevel())
+	cl := loadLogger()
+	if cl == nil {
+		panic("logger is not initialized")
+	}
+	cl.atom.SetLevel(lv.zapLevel())
 }
 
-// L 返回基础日志记录器。
+// L returns the basic logger.
 func L() *Logger {
-	return loadLogger().logger
+	cl := loadLogger()
+	if cl == nil {
+		panic("logger is not initialized")
+	}
+	return cl.logger
 }
 
-// W 返回 Web 日志记录器。
+// W returns the web logger.
 func W() *Logger {
-	return loadLogger().webLogger
+	cl := loadLogger()
+	if cl == nil {
+		panic("logger is not initialized")
+	}
+	return cl.webLogger
 }
 
-// Recover 停止一个 panic 的 goroutine，并记录一个错误级别的消息。
+// Recover stops a goroutine panic and logs an error-level message.
 func (l *Logger) Recover(msg string) {
 	if r := recover(); r != nil {
 		msg := fmt.Sprintf("%s. Recovering, but please report this.", msg)

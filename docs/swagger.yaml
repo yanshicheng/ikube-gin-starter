@@ -1,0 +1,175 @@
+definitions:
+  errorx.ErrorCode:
+    enum:
+    - 0
+    - 99999
+    - 11000
+    - 11001
+    - 11002
+    - 11003
+    - 11004
+    - 10110
+    - 10111
+    - 10130
+    - 10131
+    - 18000
+    - 18004
+    - 10101
+    - 10102
+    - 10103
+    - 10104
+    - 10105
+    - 10106
+    - 10500
+    type: integer
+    x-enum-comments:
+      ErrBusinessLogic: 业务逻辑错误
+      ErrDataConflict: 数据冲突
+      ErrDataCreation: 数据创建失败
+      ErrDataDeletion: 数据删除失败
+      ErrDataNotFound: 数据未找到
+      ErrDatabase: 数据库相关错误
+      ErrGeneric: 正常
+      ErrLoginExpired: 登录过期
+      ErrLoginInvalid: 登录信息无效
+      ErrParamParse: 参数解析失败
+      ErrPermissionDenied: 权限不足
+      ErrRoleNotFound: 角色未找到
+      ErrToOperation: '"to" 操作相关错误'
+      ErrTokenBlacklisted: Token 被列入黑名单
+      ErrTokenExpired: Token 失效
+      ErrTokenInvalid: Token 解析失败
+      ErrTokenMissing: 缺少 Token
+      ErrTokenRefresh: Token 刷新失败
+    x-enum-varnames:
+    - ErrNormal
+    - ErrGeneric
+    - ErrTokenMissing
+    - ErrTokenExpired
+    - ErrTokenInvalid
+    - ErrTokenRefresh
+    - ErrTokenBlacklisted
+    - ErrLoginExpired
+    - ErrLoginInvalid
+    - ErrPermissionDenied
+    - ErrRoleNotFound
+    - ErrDatabase
+    - ErrDataConflict
+    - ErrBusinessLogic
+    - ErrParamParse
+    - ErrDataNotFound
+    - ErrDataCreation
+    - ErrDataDeletion
+    - ErrToOperation
+    - ErrServerErr
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  model.Book:
+    properties:
+      Desc:
+        type: string
+      Meta:
+        description: 使用 json.RawMessage 来存储未解析的 JSON 数据
+        type: object
+      PageNumber:
+        type: integer
+      Title:
+        example: My Book
+        maxLength: 20
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      updatedAt:
+        type: string
+    required:
+    - PageNumber
+    - Title
+    type: object
+  types.Data:
+    properties:
+      Code:
+        $ref: '#/definitions/errorx.ErrorCode'
+      Data: {}
+      DataType:
+        $ref: '#/definitions/types.DataType'
+      Message:
+        type: string
+    type: object
+  types.DataType:
+    enum:
+    - string
+    - json
+    - slice
+    type: string
+    x-enum-varnames:
+    - DataTypeString
+    - DataTypeJson
+    - DataTypeSlice
+info:
+  contact:
+    email: ikubeops@gmail.com
+    name: 官网地址
+    url: http://www.ikubeops.com
+  description: gin 脚手架
+  termsOfService: http://swagger.io/terms/
+  title: IkubeOps OpenApi API
+  version: 0.0.1
+paths:
+  /api/user/info:
+    get:
+      consumes:
+      - application/json
+      description: 获取当前用户的详细信息
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Book'
+      security:
+      - types.SearchId: []
+      summary: 获取用户信息
+  /book-shelf/book:
+    post:
+      consumes:
+      - application/json
+      description: 创建书籍接口
+      parameters:
+      - description: 书籍名称
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/model.Book'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: desc
+          schema:
+            allOf:
+            - $ref: '#/definitions/types.Data'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.Book'
+              type: object
+      summary: 创建书籍接口
+      tags:
+      - 书籍管理
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
