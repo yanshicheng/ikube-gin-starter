@@ -1514,3 +1514,12 @@ ORDER BY
 
 2024/07/09 17:00:24 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
 [255.661ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 17:10:16 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:96
+[145.661ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE name like ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL
+
+2024/07/09 17:10:16 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[246.799ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?
+
+2024/07/09 17:10:16 /Users/devops/data/template/golang/ikube-gin-starter/apps/portal/logic/organization.go:53
+[249.115ms] [rows:1] SELECT * FROM `ikubeops_portal_organization` WHERE id = ? AND `ikubeops_portal_organization`.`deleted_at` IS NULL ORDER BY `ikubeops_portal_organization`.`id` LIMIT ?

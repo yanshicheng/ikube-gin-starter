@@ -100,11 +100,13 @@ func (o *OrganizationLogic) List(c *gin.Context, search types2.OrganizationSearc
 		o.l.Debug(fmt.Sprintf("查询机构信息: %+v, %d", orgs, len(orgs)))
 		resultOrgs := make([]*model.Organization, 0)
 		for _, org := range orgs {
+			o.l.Debug(fmt.Sprintf("查询机构信息org: %+v", org))
 			resultOrg, err := o.buildParentHierarchy(&org)
 			if err != nil {
 				o.l.Error(fmt.Sprintf("构建父级层级结构失败, id: %d, error: %s", org.ID, err.Error()))
 				return nil, err
 			}
+			o.l.Debug(fmt.Sprintf("查询机构信息resultOrg: %+v", resultOrg))
 			resultOrgs = append(resultOrgs, resultOrg)
 		}
 		return resultOrgs, nil
