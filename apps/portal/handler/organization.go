@@ -100,12 +100,12 @@ func (h *OrganizationHandler) put(c *gin.Context) {
 		response.FailedParam(c, err)
 		return
 	}
-	if err := h.svc.Put(c, id, &org); err != nil {
+	if newOrg, err := h.svc.Put(c, id, &org); err != nil {
 		h.l.Error(fmt.Sprintf("数据更新失败: %s", err))
 		response.FailedStr(c, err.Error())
 	} else {
 		h.l.Debug(fmt.Sprintf("更新成功: %+v", org))
-		response.SuccessMap(c, org)
+		response.SuccessMap(c, newOrg)
 	}
 
 }
@@ -121,7 +121,7 @@ func (h *OrganizationHandler) delete(c *gin.Context) {
 		response.FailedStr(c, err.Error())
 	} else {
 		h.l.Debug(fmt.Sprintf("删除成功: %+v", id))
-		response.SuccessMap(c, id)
+		response.SuccessMap(c, nil)
 	}
 
 }

@@ -19,8 +19,8 @@ type Account struct {
 	model.Model
 	UserName       string    `json:"userName" binding:"required,max=32" gorm:"type:varchar(32);not null;comment:姓名"`
 	Account        string    `json:"account" binding:"required,max=32" gorm:"type:varchar(32);unique_index;not null;comment:账号"`
-	Password       string    `json:"password" binding:"required,max=24" gorm:"type:varchar(256);not null;comment:密码"`
-	Icon           string    `json:"icon" binding:"required,max=256" gorm:"type:varchar(256);not null;comment:头像"`
+	Password       string    `json:"password" binding:"max=24" gorm:"type:varchar(256);not null;comment:密码"`
+	Icon           string    `json:"icon"  gorm:"type:varchar(256);not null;comment:头像"`
 	Mobile         string    `json:"mobile" binding:"required,max=11" gorm:"type:char(11);unique_index;not null;comment:手机号"`
 	Email          string    `json:"email" binding:"required,max=36,email" gorm:"type:varchar(36);unique_index;not null;comment:邮箱"`
 	WorkNumber     string    `json:"workNumber" binding:"required,max=24" gorm:"type:varchar(24);unique_index;not null;comment:工号"`
@@ -39,7 +39,7 @@ func (u *Account) TableName() string {
 
 type Organization struct {
 	model.Model
-	Name     string          `json:"name" binding:"required,max=32" gorm:"type:varchar(32);not null;unique;comment:团队"`
+	Name     string          `json:"name" binding:"required,max=32" gorm:"type:varchar(32);ngit ot null;comment:团队"`
 	ParentId uint            `json:"parentId" binding:"number" gorm:"type:int;not null;comment:父级"`
 	Level    int             `json:"level" gorm:"type:int;not null;comment:层级"`
 	Desc     string          `json:"Desc" gorm:"type:varchar(56);not null;comment:描述"`
